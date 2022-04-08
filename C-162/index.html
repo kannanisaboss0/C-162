@@ -1,0 +1,47 @@
+<!----------------------------------------------------------------Bowling Pin's Revenge---------------------------------------------------------------->
+
+<!--Doctype tag-->
+<DOCTYPE>
+
+<!--Head tag-->    
+<head>
+
+    <!--Script tags-->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <script src="./components/pin.js"></script>
+    <script src="./components/shoot.js"></script>
+
+</head>
+
+<body>
+
+    <!--Scene tag-->
+    <a-scene physics="gravity:-9.8;" id="scene_wrld">
+
+    <!--Asset tag-->    
+    <a-assets>
+        <a-asset-item id="bowling_ball" src="./models/ball/scene.gltf"></a-asset-item>
+        <a-asset-item id="bowling_pin" src="./models/pin/scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <!--Camera tag-->
+    <a-camera position="0 1.2 0" dynamic-body="shape:sphere;sphereRadius:0.03;mass:0" ball-shooter  id="camera_player" wasd-controls-enabled="false">
+        <a-cursor></a-cursor>
+        <a-entity id="ammo_text" position="0 1 -2" text="value:80;font:exo2bold;width:10;color:black;align:center"></a-entity>
+        <a-entity id="ammo_text" position="0 1.2 -2" text="value:AMMO;font:exo2bold;width:2;color:black;align:center"></a-entity>
+    </a-camera>
+
+    <!--Entity and box tags-->
+    <a-entity id="main_pin" dynamic-body="mass:0.5"  scale="1.5 1.5 1.5" position="0 1 -3" gltf-model="#bowling_pin"></a-entity>
+    <a-entity id="prompt_text" position="0 2 -3" text="font:exo2bold;value:HIT ME;width:12;color:black;align:center"></a-entity>
+    <a-box  static-body pin-spawner id="plane" color="blue" position="0 1 0" depth="0.02" width="4000" height="4000" rotation="-90 0 0" ></a-box>
+
+   </a-scene>
+    
+</body>
+
+<!----------------------------------------------------------------Bowling Pin's Revenge---------------------------------------------------------------->
